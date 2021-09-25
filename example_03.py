@@ -12,16 +12,17 @@ import pytest
 
 def cakes(recipe, available):
 
+    for key, value in recipe.items():
+        if key not in available:
+            return 0
+    
     lista = []
 
     for key, value in available.items():
         if key in recipe:
             lista.append(value // recipe[key])
     
-    for key, value in recipe.items():
-        if key not in available:
-            return 0
-    
+
     return min(lista)
     
 
